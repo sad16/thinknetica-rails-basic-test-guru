@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one :author
   has_many :results
   has_many :tests, through: :results
 

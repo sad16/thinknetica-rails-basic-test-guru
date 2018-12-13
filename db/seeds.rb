@@ -6,12 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+user = User.create!(name: "User", email: "user@user.com", password: "password")
+author = Author.create!(user: user)
+
 back, front = Category.create!([
   { title: "Backend" },
   { title: "Frontend" }
 ])
 
-tests = Test.create!([
+tests = author.tests.create!([
   { title: "Ruby", level: 0, category: back },
   { title: "Rails", level: 1, category: back },
   { title: "HTML", level: 2, category: front },
@@ -25,7 +28,6 @@ tests.each do |test|
   end
 end
 
-user = User.create!(name: "User", email: "user@user.com", password: "password")
 user.results.create!([
   { grade: 5, test: tests.first },
   { grade: 4, test: tests.last },
