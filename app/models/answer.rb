@@ -4,5 +4,11 @@ class Answer < ApplicationRecord
   scope :correct, -> { where(correct: true) }
 
   validates :body, presence: true
-  validates_associated :question
+  validate :validate_question_answers_count
+
+  def validate_question_answers_count
+    return if question.answers.count < Question::ANSWERS_COUNT_RANGE.max
+
+    errors.add(:question)
+  end
 end

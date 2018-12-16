@@ -17,14 +17,18 @@ class Test < ApplicationRecord
   scope :middle, -> { level(LEVELS[:middle]) }
   scope :hard, -> { level(LEVELS[:hard]) }
 
-  scope :titles_by_category, -> (category) {
+  scope :by_category, -> (category) {
     joins(:category)
       .where(categories: { title: category })
       .order(title: :desc)
-      .pluck(:title)
   }
 
   validates :title, presence: true,
                     uniqueness: { scope: :level }
-  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: MIN_LEVEL }
+  validates :level, numericality: { only_integer: true,
+                                    greater_than_or_equal_to: MIN_LEVEL }
+
+  def self.titles_by_category(category)
+    by_category(category).pluck(:title)
+  end
 end
