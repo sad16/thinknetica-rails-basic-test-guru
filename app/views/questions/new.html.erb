@@ -1,0 +1,12 @@
+<h1> New question </h1>
+
+<%= form_with model: @question, url: test_questions_url do |f| %>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
