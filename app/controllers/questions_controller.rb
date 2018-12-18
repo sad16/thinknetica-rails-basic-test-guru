@@ -1,15 +1,15 @@
 class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_not_found
 
-  before_action :find_test
-  before_action :find_question, only: [:show, :destr]
+  before_action :find_test, only: [:index, :new, :create]
+  before_action :find_question, only: [:show, :destroy]
 
   def index
-    render json: @test.questions, status: :ok
+    render json: @test.questions
   end
 
   def show
-    render json: @question, status: :ok
+    render json: @question
   end
 
   def new
@@ -18,14 +18,17 @@ class QuestionsController < ApplicationController
 
   def create
     @question = @test.questions.new(question_params)
-    render :new and return unless @question.save
 
-    redirect_to test_question_path(@test, @question)
+    if @question.save
+      redirect_to question_path(@question)
+    else
+      render :new
+    end
   end
 
   def destroy
     @question.destroy
-    
+
     redirect_to test_question_path(@test, @question)
   end
 
@@ -36,7 +39,7 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    @question = @test.questions.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def question_params
