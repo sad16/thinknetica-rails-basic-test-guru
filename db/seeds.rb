@@ -22,8 +22,9 @@ tests = user.created_tests.create!([
 
 tests.each do |test|
   5.times do |index|
-    question = test.questions.create!(body: "Тело вопроса №#{index} теста #{test.title}")
-    4.times { |index| question.answers.create!(body: "Тело ответа №#{index}", correct: index.zero?) }
+    question = test.questions.new(body: "Тело вопроса №#{index} теста #{test.title}")
+    4.times { |index| question.answers.new(body: "Тело ответа №#{index}", correct: index.zero?) }
+    question.save!
   end
 end
 
