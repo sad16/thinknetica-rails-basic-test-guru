@@ -1,5 +1,4 @@
 class QuestionsController < ApplicationController
-  protect_from_forgery with: :null_session
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_not_found
 
   before_action :find_test, only: [:index, :new, :create]
@@ -28,10 +27,9 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @test = @question.test
     @question.destroy
 
-    redirect_to test_questions_path(@test)
+    redirect_to test_questions_path(@question.test)
   end
 
   private
