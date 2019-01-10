@@ -3,14 +3,11 @@ h1 Tests
 - if @tests.present?
   table
     tr
-      td 
-        strong Title
-      td
-        strong Category
-      td
-        strong Level
-      td 
-        strong Questions count
+      th Title
+      th Category
+      th Level
+      th Questions count
+      th Actions
 
     = render @tests
 - else

@@ -1,7 +1,6 @@
 module QuestionsHelper
-  def new_or_edit_question_path(question)
-    return test_questions_path(question.test) if question.new_record?
-
-    question_path(question)
+  def question_header(question)
+    test_title = question.test.title
+    question.new_record? ? "Create New #{test_title} Question" : "Edit #{test_title} Question"
   end
 end
