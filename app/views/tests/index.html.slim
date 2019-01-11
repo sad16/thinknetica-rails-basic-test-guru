@@ -1,0 +1,14 @@
+h1 Tests
+
+- if @tests.present?
+  table
+    tr
+      th Title
+      th Category
+      th Level
+      th Questions count
+      th Actions
+
+    = render @tests
+- else
+  p You don`t have tests
