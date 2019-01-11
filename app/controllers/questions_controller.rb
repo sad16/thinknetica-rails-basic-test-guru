@@ -1,10 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: [:index, :new, :create]
+  before_action :find_test, only: [:new, :create]
   before_action :find_question, only: [:show, :edit, :update, :destroy]
-
-  def index
-    render json: @test.questions
-  end
 
   def show
     render json: @question
