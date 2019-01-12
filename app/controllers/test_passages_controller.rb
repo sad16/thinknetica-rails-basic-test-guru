@@ -15,6 +15,8 @@ class TestPassagesController < ApplicationController
   end
 
   def result
+    @result = (@test_passage.correct_questions.to_f / 
+      @test_passage.test.questions.count.to_f * 100).round
   end
 
   private

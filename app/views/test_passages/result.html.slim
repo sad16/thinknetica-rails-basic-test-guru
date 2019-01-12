@@ -1,1 +1,5 @@
-h1 The #{@test_passage.test.title} Test was Completed!
+div class=result_color(@result)
+  h1 = result_title(@result, @test_passage.test.title)
+  h2 #{@result}%
+
+= link_to 'Tests', tests_path
