@@ -1,5 +1,5 @@
-div class=result_color(@result)
-  h1 = result_title(@result, @test_passage.test.title)
-  h2 #{@result}%
+div class=result_color(@test_passage)
+  h1 = result_title(@test_passage)
+  h2 #{@test_passage.result}%
 
 = link_to 'Tests', tests_path

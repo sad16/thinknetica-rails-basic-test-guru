@@ -1,12 +1,10 @@
 module TestPassagesHelper
-  SUCCESS_PERSENT = 85.freeze
-
-  def result_title(result, test_title)
-    string = result >= SUCCESS_PERSENT ? 'Successfully' : 'Unsuccessfully'
-    "The #{test_title} Test was #{string} Completed!"
+  def result_title(test_passage)
+    result = test_passage.success_result? ? 'Successfully' : 'Unsuccessfully'
+    "The #{test_passage.test.title} Test was #{result} Completed!"
   end
 
-  def result_color(result)
-    result >= SUCCESS_PERSENT ? 'green' : 'red'
+  def result_color(test_passage)
+    test_passage.success_result? ? 'green' : 'red'
   end
 end

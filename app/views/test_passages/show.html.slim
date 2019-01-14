@@ -1,6 +1,6 @@
 h1 Passing the #{@test_passage.test.title} Test
 
-b #{pluralize(@test_passage.test.questions.count, 'question')}
+b = pluralize(@test_passage.test.questions.count, 'question')
 br
 b Question №#{@test_passage.current_question_number}
 br
