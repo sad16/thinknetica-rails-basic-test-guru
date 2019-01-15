@@ -1,5 +1,5 @@
 class TestPassage < ApplicationRecord
-  SUCCESS_PERSENT = 85.freeze
+  SUCCESS_PERSENT = 85
 
   belongs_to :user
   belongs_to :test
@@ -11,8 +11,8 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  def accept!(answers_ids)
-    self.correct_questions += 1 if correct_answer?(answers_ids)
+  def accept!(answer_ids)
+    self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
 
@@ -28,20 +28,22 @@ class TestPassage < ApplicationRecord
     result >= SUCCESS_PERSENT
   end
 
-  private
-
-  def before_validation_set_next_question
+  def next_question
     if test.present?
       sorted_questions = test.questions.order(:id)
       sorted_questions = sorted_questions.where('id > ?', current_question.id) if persisted?
-
-      self.current_question = sorted_questions.first
+      sorted_questions.first
     end
   end
 
-  def correct_answer?(answers_ids)
-    answers_ids ||= []
-    correct_answers.ids.sort == answers_ids.map(&:to_i).sort
+  private
+
+  def before_validation_set_next_question
+    self.current_question = next_question
+  end
+
+  def correct_answer?(answer_ids)
+    correct_answers.ids.sort == Array(answer_ids).map(&:to_i).sort
   end
 
   def correct_answers
