@@ -27,8 +27,3 @@ tests.each do |test|
     question.save!
   end
 end
-
-user.results.create!([
-  { grade: 5, test: tests.first },
-  { grade: 4, test: tests.last },
-])
