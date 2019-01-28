@@ -3,7 +3,7 @@ p.nav
     | Welcome,
     b<> = current_user.email
     | Guru
-    =< link_to 'Logout', logout_path
+    =< link_to 'Logout', logout_path, method: :delete
   - else
     =< link_to 'TestGuru', '/'
     =< link_to 'Singup', singup_path
