@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :create
 
-  resource :sessions, only: :create
+  resource :session, only: :create
 
   resources :tests, only: [:index, :show] do
     resources :questions, except: :index, shallow: true do
