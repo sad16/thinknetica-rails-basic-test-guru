@@ -1,0 +1,18 @@
+= form_with model: [:admin, @test] do |f|
+  p
+    = f.label :title
+    br
+    = f.text_area :title
+
+  p
+    = f.label :level
+    br
+    = f.number_field :level
+
+  p
+    = f.label :category_id
+    br
+    = f.collection_select(:category_id, Category.all, :id, :title)
+
+  p
+    = f.submit 'Save'
