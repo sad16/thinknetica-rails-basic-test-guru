@@ -1,1 +1,2 @@
-= flash_messages(flash)
+- flash.each do |type, message|
+  = flash_message(type, message)
