@@ -1,7 +1,11 @@
 .flash {
   border: 2px solid;
-  padding: 10 px;
+  padding: 10px;
   border-radius: 5px;
+}
+
+.flash.notice {
+  border-color: green;
 }
 
 .flash.alert {

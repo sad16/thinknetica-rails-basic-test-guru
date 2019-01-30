@@ -1,0 +1,9 @@
+h1 #{@test.title} test
+
+h2 Questions
+
+= link_to 'New question', new_admin_test_question_path(@test)
+
+= render @test.questions
+
+= link_to 'Back', admin_tests_path
