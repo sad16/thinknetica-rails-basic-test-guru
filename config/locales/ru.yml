@@ -1,2 +1,9 @@
 ru:
-  hello: "Привет мир"
+  helpers:
+    select:
+      prompt: "Выберите"
+
+    submit:
+      create: 'Создать %{model}'
+      update: 'Обновить %{model}'
+      submit: 'Сохранить %{model}'
