@@ -4,6 +4,65 @@ ru:
       prompt: "Выберите"
 
     submit:
-      create: 'Создать %{model}'
-      update: 'Обновить %{model}'
-      submit: 'Сохранить %{model}'
+      create: "Создать %{model}"
+      update: "Обновить %{model}"
+      submit: "Сохранить %{model}"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+    nav:
+      singup: "Регистрация"
+      login: "Вход"
+      logout: "Выход"
+      hello: "Добро пожаловать, %{email}"
+
+  tests:
+    index:
+      header: "Список тестов"
+      question: "Количество вопросов"
+      actions: "Действия"
+      no_tests: "Тестов нет"
+
+    test:
+      start: "Начать"
+
+  admin:
+    tests:
+      index:
+        header: "Список тестов"
+        new: "Новый тест"
+        question: "Количество вопросов"
+        actions: "Действия"
+        no_tests: "Тестов нет"
+
+      new:
+        header: "Новый тест"
+        back: "Назад"
+
+      show:
+        header: "%{title} тест"
+        questions: "Вопросы"
+        new_question: "Новый вопрос"
+        back: "Назад"
+
+      edit:
+        header: "Редактирование %{title} теста"
+        back: "Назад"
+
+      create:
+        created: "Тест успешно создан"
+
+      update:
+        updated: "Тест успешно обновлен"
+
+      test:
+        show: "Посмотреть"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm: "Вы уверены?"

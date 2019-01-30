@@ -1,4 +1,6 @@
-= form_with model: [:admin, @test] do |f|
+= form_with model: [:admin, @test], local: true do |f|
+  = render 'shared/errors', resource: @test
+
   p
     = f.label :title
     br

@@ -3,10 +3,11 @@ ru:
     models:
       test: "Тест"
 
-    attributesd:
+    attributes:
       test:
         title: "Название"
-
-    errors:
-      messages:
-        blank: "не может быть пустым"
+        level: "Уровень"
+        category_id: "Категория"
+        author_id: "Автор"
+        created_at: "Создан"
+        updated_at: "Обновлен"
