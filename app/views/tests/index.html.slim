@@ -1,14 +1,14 @@
-h1 Tests
+h1 = t('.header')
 
 - if @tests.present?
   table
     tr
-      th Title
-      th Category
-      th Level
-      th Questions count
-      th Actions
+      th = Test.human_attribute_name(:title)
+      th = Test.human_attribute_name(:category_id)
+      th = Test.human_attribute_name(:level)
+      th = t('.question')
+      th = t('.actions')
 
     = render @tests
 - else
-  p You don`t have tests
+  p = t('.no_tests')

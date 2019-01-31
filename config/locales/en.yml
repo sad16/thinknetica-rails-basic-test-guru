@@ -30,4 +30,68 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  helpers:
+    select:
+      prompt: "Please select"
+
+    submit:
+      create: "Create %{model}"
+      update: "Update %{model}"
+      submit: "Save %{model}"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+    nav:
+      singup: "Singup"
+      login: "Login"
+      logout: "Logout"
+      hello: "Welcome, %{email}"
+
+  tests:
+    index:
+      header: "Tests"
+      question: "Questions count"
+      actions: "Actions"
+      no_tests: "No tests"
+
+    test:
+      start: "Start"
+
+  admin:
+    tests:
+      index:
+        header: "Tests"
+        new: "New Test"
+        question: "Questions count"
+        actions: "Actions"
+        no_tests: "No tests"
+
+      new:
+        header: "New Test"
+        back: "Back"
+
+      show:
+        header: "%{title} test"
+        questions: "Questions"
+        new_question: "New question"
+        back: "Back"
+
+      edit:
+        header: "Edit %{title} test"
+        back: "Back"
+
+      create:
+        created: "Test created successfully"
+
+      update:
+        updated: "Test successfully updated"
+
+      test:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "Are you sure?"

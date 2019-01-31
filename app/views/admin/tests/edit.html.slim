@@ -1,5 +1,5 @@
-h2 Edit #{@test.title} Test
+h2 = t('.header', title: @test.title)
 
 = render 'form'
 
-= link_to 'Back', admin_tests_path
+= link_to t('.back'), admin_tests_path
