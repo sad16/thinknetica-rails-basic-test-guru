@@ -1,14 +1,17 @@
-h1 = t('.header')
+h1.mt-3.mb-3 = t('.header')
 
 - if @tests.present?
-  table
-    tr
-      th = Test.human_attribute_name(:title)
-      th = Test.human_attribute_name(:category_id)
-      th = Test.human_attribute_name(:level)
-      th = t('.question')
-      th = t('.actions')
+  table.table.table-striped
+    thead
+      tr
+        th = Test.human_attribute_name(:title)
+        th = Test.human_attribute_name(:category_id)
+        th = Test.human_attribute_name(:level)
+        th = t('.question')
+        th = t('.actions')
 
-    = render @tests
+    tbody
+      = render @tests
+
 - else
   p = t('.no_tests')

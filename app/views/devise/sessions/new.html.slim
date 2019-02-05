@@ -1,22 +1,26 @@
-h2 Login
+.row.justify-content-center.mt-3
+  .col.col-md-4
+    h2 Вход
 
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+    .card.border-primary
+      .card-body
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-group
+            p
+              = f.label :email
+              = f.email_field :email, autofocus: true, class: 'form-control'
 
-  .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: "current-password"
+            p
+              = f.label :password
+              = f.password_field :password, autocomplete: 'off', class: 'form-control'
 
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
+            - if devise_mapping.rememberable?
+              .form-check
+                = f.label :remember_me, class: 'form-check-label' do
+                  = f.check_box :remember_me, class: 'form-check-input'
+                  | Запомнить меня
 
-  .actions
-    = f.submit "Login"
+          .actions
+            = f.submit 'Вход', class: 'btn btn-primary'
 
-= render "devise/shared/links"
+    = render "devise/shared/links"

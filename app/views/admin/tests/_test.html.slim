@@ -3,6 +3,6 @@ tr
   td = test.category.title
   td = test.level
   td = test.questions.count
-  td = link_to t('.show'), admin_test_path(test)
-  td = link_to t('.edit'), edit_admin_test_path(test)
-  td = link_to t('.delete'), admin_test_path(test), method: :delete, data: { confirm: t('.confirm') }
+  td = link_to t('.show'), admin_test_path(test), class: 'btn btn-primary'
+  td = link_to t('.edit'), edit_admin_test_path(test), class: 'btn btn-warning'
+  td = link_to t('.delete'), admin_test_path(test), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger'
