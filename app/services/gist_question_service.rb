@@ -10,7 +10,7 @@ class GistQuestionService
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @result = Result.new(:failture)
+    @result = Result.new
     @client = client || default_client
   end
 
