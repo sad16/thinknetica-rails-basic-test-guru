@@ -20,7 +20,8 @@ ru:
       singup: "Регистрация"
       login: "Вход"
       logout: "Выход"
-      hello: "Добро пожаловать, %{email}"
+      hello: "Добро пожаловать,"
+      сontrol_panel: "Панель управления"
 
   tests:
     index:

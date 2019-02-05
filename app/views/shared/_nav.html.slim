@@ -1,9 +1,18 @@
-p.nav
-  - if user_signed_in?
-    => t('.hello', email: current_user.email)
-    '|
-    = link_to t('.logout'), destroy_user_session_path, method: :delete
-  - else
-    =< link_to 'TestGuru', root_path
-    =< link_to t('.singup'), new_user_registration_path
-    =< link_to t('.login'), new_user_session_path
+nav.navbar.navbar-light.bg-light
+  a.navbar-brand href=root_path TestGuru
+
+  span.navbar-text
+    - if user_signed_in?
+      => t('.hello')
+      b => current_user.email
+      '|
+
+      - if current_user.admin?
+        => link_to t('.сontrol_panel'), admin_tests_path
+        '|
+
+      = link_to t('.logout'), destroy_user_session_path, method: :delete
+    - else
+      => link_to t('.login'), new_user_session_path
+      '|
+      = link_to t('.singup'), new_user_registration_path
