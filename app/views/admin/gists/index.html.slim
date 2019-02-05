@@ -1,0 +1,15 @@
+h1.mt-3.mb-3 = t('.header')
+
+- if @gists.present?
+  table.table.table-striped
+    thead
+      tr
+        th = User.model_name.human
+        th = Question.model_name.human
+        th = Gist.human_attribute_name(:url)
+
+    tbody
+      = render @gists
+
+- else
+  p = t('.no_gists')

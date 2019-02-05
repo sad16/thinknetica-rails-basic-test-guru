@@ -8,7 +8,9 @@ nav.navbar.navbar-light.bg-light
       '|
 
       - if current_user.admin?
-        => link_to t('.сontrol_panel'), admin_tests_path
+        => link_to t('.tests'), admin_tests_path
+        '|
+        => link_to t('.gists'), admin_gists_path
         '|
 
       = link_to t('.logout'), destroy_user_session_path, method: :delete

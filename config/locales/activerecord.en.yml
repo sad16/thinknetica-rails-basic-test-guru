@@ -2,6 +2,8 @@ en:
   activerecord:
     models:
       test: "Test"
+      user: "User"
+      question: "Question"
 
     attributes:
       test:
@@ -11,3 +13,6 @@ en:
         author_id: "Author"
         created_at: "Created"
         updated_at: "Updated"
+
+      gist:
+        url: "Link"
