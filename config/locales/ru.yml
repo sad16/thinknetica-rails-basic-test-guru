@@ -36,7 +36,7 @@ ru:
 
   gists:
     create:
-      success: "Gist %{url} успешно создан"
+      success: "Gist %{link} успешно создан"
       failure: "Во время создания gist произошла ошибка"
 
   admin:

@@ -1,4 +1,4 @@
 tr
   td = gist.user.email
-  td = link_to "#{gist.question.body[0..24]}...", admin_question_path(gist.question)
-  td = link_to gist.url, gist.url
+  td = link_to truncate(gist.question.body, length: 25), admin_question_path(gist.question)
+  td = link_to gist.text_id, gist.url

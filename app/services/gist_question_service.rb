@@ -1,26 +1,16 @@
 class GistQuestionService
-  Result = Struct.new(:status, :url) do
-    def success?
-      status == :success
-    end
-  end
-
-  attr_reader :question, :test, :result, :client
+  attr_reader :question, :test, :client
 
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @result = Result.new
     @client = client || default_client
   end
 
   def call
-    result.url = client.create_gist(gist_options).html_url
-    result.status = :success
+    client.create_gist(gist_options).html_url
   rescue Octokit::ClientError
-    result.status = :failture
-  ensure
-    return result
+    nil
   end
 
   private
@@ -46,8 +36,6 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [question.body]
-    content += question.answers.pluck(:body)
-    content.join("\n")
+    [question.body, *question.answers.pluck(:body)].join("\n")
   end
 end
