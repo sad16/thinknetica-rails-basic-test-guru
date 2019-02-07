@@ -2,6 +2,8 @@ ru:
   activerecord:
     models:
       test: "Тест"
+      user: "Пользователь"
+      question: "Вопрос"
 
     attributes:
       test:
@@ -11,3 +13,6 @@ ru:
         author_id: "Автор"
         created_at: "Создан"
         updated_at: "Обновлен"
+
+      gist:
+        url: "Ссылка"

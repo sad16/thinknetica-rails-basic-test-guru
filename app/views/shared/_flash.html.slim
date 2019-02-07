@@ -1,2 +1,2 @@
 - flash.each do |type, message|
-  = content_tag :div, message, class: "alert alert-#{alert_class(type)} mt-3", role: 'alert'
+  = content_tag :div, message.html_safe, class: "alert alert-#{alert_class(type)} mt-3", role: 'alert'
