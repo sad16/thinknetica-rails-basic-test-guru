@@ -4,7 +4,10 @@ h1.mt-3.mb-3 = t('.header')
   table.table.table-striped
     thead
       tr
-        th = Test.human_attribute_name(:title)
+        th.sort-by-title.pointer
+          = Test.human_attribute_name(:title)
+          = octicon 'arrow-up', class: 'text-success hide'
+          = octicon 'arrow-down', class: 'text-success hide'
         th = Test.human_attribute_name(:category_id)
         th = Test.human_attribute_name(:level)
         th = t('.question')
