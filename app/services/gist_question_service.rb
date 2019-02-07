@@ -7,10 +7,19 @@ class GistQuestionService
     @client = client || default_client
   end
 
+  Result = Struct.new(:url) do
+    def success?
+      url.present?
+    end
+  end
+
   def call
-    client.create_gist(gist_options).html_url
+    result = Result.new
+    result.url = client.create_gist(gist_options).html_url
   rescue Octokit::ClientError
-    nil
+    # some error processing - logging, etc.
+  ensure
+    return result
   end
 
   private

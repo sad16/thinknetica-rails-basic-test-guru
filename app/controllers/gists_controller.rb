@@ -3,10 +3,13 @@ class GistsController < ApplicationController
 
   def create
     question = @test_passage.current_question
-    url = GistQuestionService.new(question).call
-    gist = current_user.gists.new(question: question, url: url)
+    result = GistQuestionService.new(question).call
 
-    if gist.save
+    if result.success?
+      gist = current_user.gists.new(question: question, url: result.url)
+    end
+
+    if gist && gist.save
       flash[:notice] = t('.success', link: helpers.link_to(gist.text_id, gist.url, target: :blank))
     else
       flash[:alert] = t('.failure')
