@@ -1,36 +1,34 @@
-h2 Registration
+.row.justify-content-center.mt-3
+  .col.col-md-4
+    h2 Регистрация
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
+    .card.border-primary
+      .card-body
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .form-group
+            p
+              = f.label :email
+              = f.email_field :email, autofocus: true, class: 'form-control'
 
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+            p
+              = f.label :last_name
+              = f.text_field :last_name, class: 'form-control'
 
-  .field
-    = f.label :last_name
-    br
-    = f.text_field :last_name, autocomplete: "last-name"
+            p
+              = f.label :first_name
+              = f.text_field :first_name, class: 'form-control'
 
-  .field
-    = f.label :first_name
-    br
-    = f.text_field :first_name, autocomplete: "first-name"
+            p
+              = f.label :password
+              = f.password_field :password, autocomplete: 'off', class: 'form-control'
 
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      em< #{@minimum_password_length} characters minimum
-    br
-    = f.password_field :password, autocomplete: "new-password"
+            p
+              = f.label :password_confirmation
+              = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
 
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
+          .actions
+            = f.submit 'Зарегистрироватся', class: 'btn btn-primary'
 
-  .actions
-    = f.submit "Enter"
+    = render "devise/shared/links"
 
-= render "devise/shared/links"

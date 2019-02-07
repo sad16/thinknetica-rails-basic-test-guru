@@ -44,6 +44,8 @@ gem 'bootstrap', '~> 4.2.1'
 
 gem "octokit", "~> 4.0"
 
+gem 'octicons_helper'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
