@@ -1,24 +1,24 @@
 document.addEventListener('turbolinks:load', function() {
-  var control = document.querySelector('.sort-by-title')
+  var control = document.querySelector('.sort-by-title');
 
   if (control) { control.addEventListener('click', sortByTitle) }
 })
 
 function sortByTitle() {
-  var table = document.querySelector('table')
+  var table = document.querySelector('table');
 
   // NodeList
   // https://developer.mozilla.org/ru/docs/Web/API/NodeList
-  var rows = table.querySelectorAll('tr')
-  var sortedRows = []
+  var rows = table.querySelectorAll('tr');
+  var sortedRows = [];
 
   // select all table rows except the first one which is the header
   for (var i = 1; i < rows.length; i++) {
     sortedRows.push(rows[i])
   }
 
-  var arrowUpClassList = this.querySelector('.octicon-arrow-up').classList
-  var arrowDownClassList = this.querySelector('.octicon-arrow-down').classList
+  var arrowUpClassList = this.querySelector('.octicon-arrow-up').classList;
+  var arrowDownClassList = this.querySelector('.octicon-arrow-down').classList;
 
   if (arrowUpClassList.contains('hide')) {
     sortedRows.sort(compareRowsAsc)
@@ -31,21 +31,21 @@ function sortByTitle() {
     arrowUpClassList.add('hide')
   }
 
-  var sortedTable = document.createElement('table')
+  var sortedTable = document.createElement('table');
 
-  sortedTable.classList.add('table')
-  sortedTable.appendChild(rows[0])
+  sortedTable.classList.add('table');
+  sortedTable.appendChild(rows[0]);
 
   for (var i = 0; i < sortedRows.length; i++) {
     sortedTable.appendChild(sortedRows[i])
   }
 
-  table.parentNode.replaceChild(sortedTable, table)
+  table.parentNode.replaceChild(sortedTable, table);
 }
 
 function compareRowsAsc(row1, row2) {
-  var testTitle1 = row1.querySelector('td').textContent
-  var testTitle2 = row2.querySelector('td').textContent
+  var testTitle1 = row1.querySelector('td').textContent;
+  var testTitle2 = row2.querySelector('td').textContent;
 
   if (testTitle1 < testTitle2) { return -1 }
   if (testTitle1 > testTitle2) { return 1 }
@@ -53,8 +53,8 @@ function compareRowsAsc(row1, row2) {
 }
 
 function compareRowsDesc(row1, row2) {
-  var testTitle1 = row1.querySelector('td').textContent
-  var testTitle2 = row2.querySelector('td').textContent
+  var testTitle1 = row1.querySelector('td').textContent;
+  var testTitle2 = row2.querySelector('td').textContent;
 
   if (testTitle1 < testTitle2) { return 1 }
   if (testTitle1 > testTitle2) { return -1 }
