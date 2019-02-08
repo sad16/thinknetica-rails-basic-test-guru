@@ -1,8 +1,15 @@
+- questions_count = @test_passage.test.questions.count
+- current_question_number = @test_passage.current_question_number
+
+p
+  .progress
+    = content_tag :div, nil, class: 'progress-bar progress-bar-striped bg-success', role: :progressbar, aria: { valuenow: current_question_number - 1, valuemin: 0, valuemax: questions_count }, data: { value_now: current_question_number - 1, value_max: questions_count }, style: 'width: 0%'
+
 h1 Passing the #{@test_passage.test.title} Test
 
-b = pluralize(@test_passage.test.questions.count, 'question')
+b = pluralize(questions_count, 'question')
 br
-b Question №#{@test_passage.current_question_number}
+b Question №#{current_question_number}
 br
 b = @test_passage.current_question.body
 

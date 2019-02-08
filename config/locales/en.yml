@@ -85,6 +85,7 @@ en:
         header: "%{title} test"
         questions: "Questions"
         new_question: "New question"
+        edit: "Edit"
         back: "Back"
 
       edit:
