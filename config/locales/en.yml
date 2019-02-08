@@ -103,6 +103,9 @@ en:
         delete: "Delete"
         confirm: "Are you sure?"
 
+      form_inline:
+        submit: "ОК"
+
     gists:
       index:
         header: "Gists"
