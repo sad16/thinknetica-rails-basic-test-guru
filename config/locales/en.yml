@@ -85,6 +85,7 @@ en:
         header: "%{title} test"
         questions: "Questions"
         new_question: "New question"
+        edit: "Edit"
         back: "Back"
 
       edit:
@@ -102,6 +103,9 @@ en:
         edit: "Edit"
         delete: "Delete"
         confirm: "Are you sure?"
+
+      form_inline:
+        submit: "ОК"
 
     gists:
       index:

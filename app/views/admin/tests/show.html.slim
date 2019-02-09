@@ -6,4 +6,6 @@ h2 = t('.questions')
 
 = render @test.questions
 
+= link_to t('.edit'), edit_admin_test_path(@test)
+br
 = link_to t('.back'), admin_tests_path
