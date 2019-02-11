@@ -36,8 +36,8 @@ tests = admin.created_tests.create!([
 
 tests.each do |test|
   5.times do |index|
-    question = test.questions.new(body: "Тело вопроса №#{index} теста #{test.title}")
-    4.times { |index| question.answers.new(body: "Тело ответа №#{index}", correct: index.zero?) }
+    question = test.questions.new(body: "Тело вопроса №#{index + 1} теста #{test.title}")
+    4.times { |index| question.answers.new(body: "Тело ответа №#{index + 1}", correct: index.zero?) }
     question.save!
   end
 end

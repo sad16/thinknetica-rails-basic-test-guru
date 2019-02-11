@@ -39,6 +39,14 @@ ru:
       success: "Gist %{link} успешно создан"
       failure: "Во время создания gist произошла ошибка"
 
+  feedbacks:
+    new:
+      header: "Обратная связь"
+      submit: "Отправить"
+
+    create:
+      sended: "Сообщение отправлено успешно"
+
   admin:
     tests:
       index:
@@ -86,3 +94,6 @@ ru:
   services:
     gist_question_service:
       description: "Вопрос о %{title} из TestGuru"
+
+  feedback_mailer:
+    subject: "Новое сообщение"

@@ -16,3 +16,8 @@ en:
 
       gist:
         url: "Link"
+
+      feedback:
+        email: "Email"
+        name: "Name"
+        message: "Message"

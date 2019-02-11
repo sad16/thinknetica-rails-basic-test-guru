@@ -4,6 +4,7 @@ ru:
       test: "Тест"
       user: "Пользователь"
       question: "Вопрос"
+      feedback: "Обратная связь"
 
     attributes:
       test:
@@ -16,3 +17,8 @@ ru:
 
       gist:
         url: "Ссылка"
+
+      feedback:
+        email: "Email"
+        name: "Имя"
+        message: "Сообщение"
