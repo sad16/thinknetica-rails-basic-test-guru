@@ -4,6 +4,7 @@ en:
       test: "Test"
       user: "User"
       question: "Question"
+      feedback: "Feedback"
 
     attributes:
       test:
