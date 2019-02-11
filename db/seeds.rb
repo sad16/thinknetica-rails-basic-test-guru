@@ -6,21 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-admin = Admin.create!(
-  last_name: "Admin",
-  first_name: "Admin",
-  email: "admin@admin.com",
-  password: "password",
-  password_confirmation: "password"
-)
+# admin = Admin.create!(
+#   last_name: "Admin",
+#   first_name: "Admin",
+#   email: "admin@admin.com",
+#   password: "password",
+#   password_confirmation: "password"
+# )
 
-user = User.create!(
-  last_name: "User",
-  first_name: "User",
-  email: "user@user.com",
-  password: "password",
-  password_confirmation: "password"
-)
+# user = User.create!(
+#   last_name: "User",
+#   first_name: "User",
+#   email: "user@user.com",
+#   password: "password",
+#   password_confirmation: "password"
+# )
 
 back, front = Category.create!([
   { title: "Backend" },
