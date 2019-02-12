@@ -97,3 +97,6 @@ ru:
 
   feedback_mailer:
     subject: "Новое сообщение"
+
+  test_passage_mailer:
+    subject: "Результат теста %{title}"

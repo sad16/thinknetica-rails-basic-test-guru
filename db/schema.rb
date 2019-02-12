@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_125039) do
+ActiveRecord::Schema.define(version: 2019_02_11_121938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,15 +29,6 @@ ActiveRecord::Schema.define(version: 2019_02_11_125039) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_categories_on_title", unique: true
-  end
-
-  create_table "feedbacks", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "name", null: false
-    t.text "message", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_feedbacks_on_email"
   end
 
   create_table "gists", force: :cascade do |t|
@@ -80,9 +71,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_125039) do
     t.bigint "author_id"
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
-    t.index ["level"], name: "index_tests_on_level"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
-    t.index ["title"], name: "index_tests_on_title"
   end
 
   create_table "users", force: :cascade do |t|

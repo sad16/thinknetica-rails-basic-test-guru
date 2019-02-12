@@ -126,3 +126,6 @@ en:
 
   feedback_mailer:
     subject: "New message"
+
+  test_passage_mailer:
+    subject: "Test %{title} result"

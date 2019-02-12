@@ -1,5 +1,5 @@
 class FeedbacksController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create]
+  skip_before_action :authenticate_user!
 
   def new
     @feedback = Feedback.new
@@ -8,7 +8,7 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = Feedback.new(feedback_params)
 
-    if @feedback.save
+    if @feedback.valid?
       FeedbackMailer.with(feedback: @feedback).email.deliver_now
       redirect_to feedback_path, notice: t('.sended')
     else
