@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :gists, only: :create
 
+  resource :feedback, only: [:new, :create], path_names: { new: '' }
+
   namespace :admin do
     resources :tests do
       patch :update_inline, on: :member

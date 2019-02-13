@@ -4,6 +4,7 @@ en:
       test: "Test"
       user: "User"
       question: "Question"
+      feedback: "Feedback"
 
     attributes:
       test:
@@ -16,3 +17,8 @@ en:
 
       gist:
         url: "Link"
+
+      feedback:
+        email: "Email"
+        name: "Name"
+        message: "Message"

@@ -68,6 +68,14 @@ en:
       success: "Gist {link} created successfully"
       failure: "An error occurred while creating the gist"
 
+  feedbacks:
+    new:
+      header: "Feedback"
+      submit: "Send"
+
+    create:
+      sended: "Message sent successfully"
+
   admin:
     tests:
       index:
@@ -115,3 +123,9 @@ en:
   services:
     gist_question_service:
       description: "A question about %{title} from TestGuru"
+
+  feedback_mailer:
+    subject: "New message"
+
+  test_passage_mailer:
+    subject: "Test %{title} result"

@@ -7,20 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 admin = Admin.create!(
-  last_name: "Admin",
-  first_name: "Admin",
-  email: "admin@admin.com",
+  last_name: "Сальников",
+  first_name: "Артем",
+  email: "salnikov.a.d@gmail.com",
   password: "password",
   password_confirmation: "password"
 )
 
-user = User.create!(
-  last_name: "User",
-  first_name: "User",
-  email: "user@user.com",
-  password: "password",
-  password_confirmation: "password"
-)
+# user = User.create!(
+#   last_name: "User",
+#   first_name: "User",
+#   email: "user@user.com",
+#   password: "password",
+#   password_confirmation: "password"
+# )
 
 back, front = Category.create!([
   { title: "Backend" },
@@ -36,8 +36,8 @@ tests = admin.created_tests.create!([
 
 tests.each do |test|
   5.times do |index|
-    question = test.questions.new(body: "Тело вопроса №#{index} теста #{test.title}")
-    4.times { |index| question.answers.new(body: "Тело ответа №#{index}", correct: index.zero?) }
+    question = test.questions.new(body: "Тело вопроса №#{index + 1} теста #{test.title}")
+    4.times { |index| question.answers.new(body: "Тело ответа №#{index + 1}", correct: index.zero?) }
     question.save!
   end
 end
