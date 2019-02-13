@@ -9,7 +9,7 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.new(feedback_params)
 
     if @feedback.valid?
-      FeedbackMailer.with(feedback: @feedback).email.deliver_now
+      FeedbackMailer.email(@feedback).deliver_now
       redirect_to feedback_path, notice: t('.sended')
     else
       render :new

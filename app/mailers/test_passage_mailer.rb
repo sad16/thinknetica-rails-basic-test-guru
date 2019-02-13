@@ -1,6 +1,6 @@
 class TestPassageMailer < ApplicationMailer
-  def result_email
-    @test_passage = params[:test_passage]
+  def result_email(test_passage)
+    @test_passage = test_passage
     @user = @test_passage.user
     @test = @test_passage.test
 

@@ -3,8 +3,8 @@ class FeedbackMailer < ApplicationMailer
           from: 'TestGuru Feedback <feedback@testguru.ru>',
           subject: I18n.t('feedback_mailer.subject')
 
-  def email
-    @feedback = params[:feedback]
+  def email(feedback)
+    @feedback = feedback
     mail
   end
 end
