@@ -1,0 +1,6 @@
+/ h1 = t('.header', title: @badge.title)
+h1 = t('.header')
+
+= link_to t('.edit'), edit_admin_badge_path(@badge)
+br
+= link_to t('.back'), admin_badges_path

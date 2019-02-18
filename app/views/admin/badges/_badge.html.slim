@@ -1,0 +1,9 @@
+tr
+  td.align-middle = badge.name
+  td.align-middle
+    = image_tag(badge.image_url, width: 100 , height: 100)
+  td.align-middle = badge.rule_name
+  td.align-middle = badge.rule_value
+  td.align-middle = link_to t('.show'), admin_badge_path(badge), class: 'btn btn-primary'
+  td.align-middle = link_to t('.edit'), edit_admin_badge_path(badge), class: 'btn btn-warning form-inline-link'
+  td.align-middle = link_to t('.delete'), admin_badge_path(badge), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger'

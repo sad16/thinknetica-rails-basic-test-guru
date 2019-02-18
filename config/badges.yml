@@ -1,0 +1,91 @@
+development:
+  image_urls:
+    -
+      name: 'cat'
+      url: '/images/cat.svg'
+    -
+      name: 'diamond'
+      url: '/images/diamond.svg'
+    -
+      name: 'thumb'
+      url: '/images/thumb.svg'
+
+  rule_names:
+    -
+      name: 'Успешное прохождение всех тестов определенной категории'
+      value: 'category'
+    -
+      name: 'Успешное прохождение всех тестов определенного уровня'
+      value: 'level'
+    -
+      name: 'Успешное прохождение теста с первой попытки'
+      value: 'attempt'
+
+production:
+  image_urls:
+    -
+      name: 'cat'
+      url: '/images/cat.svg'
+    -
+      name: 'diamond'
+      url: '/images/diamond.svg'
+    -
+      name: 'thumb'
+      url: '/images/thumb.svg'
+
+  rule_names:
+    -
+      name: 'Успешное прохождение всех тестов определенной категории'
+      value: 'category'
+    -
+      name: 'Успешное прохождение всех тестов определенного уровня'
+      value: 'level'
+    -
+      name: 'Успешное прохождение теста с первой попытки'
+      value: 'attempt'
+
+# development:
+#   image_urls:
+#     -
+#       name: 'cat'
+#       url: 'https://www.dropbox.com/s/f1dtbxh28v8vqlh/cat.svg?dl=0'
+#     -
+#       name: 'diamond'
+#       url: 'https://www.dropbox.com/s/5x8vhovlektl9qq/diamond.svg?dl=0'
+#     -
+#       name: 'thumb'
+#       url: 'https://www.dropbox.com/s/qx4mp08nu8j7q2k/thumb.svg?dl=0'
+
+#   rule_names:
+#     -
+#       name: 'Успешное прохождение всех тестов определенной категории'
+#       value: 'category'
+#     -
+#       name: 'Успешное прохождение всех тестов определенного уровня'
+#       value: 'level'
+#     -
+#       name: 'Успешное прохождение теста с первой попытки'
+#       value: 'attempt'
+
+# production:
+#   image_urls:
+#     -
+#       name: 'cat'
+#       url: 'https://www.dropbox.com/s/f1dtbxh28v8vqlh/cat.svg?dl=0'
+#     -
+#       name: 'diamond'
+#       url: 'https://www.dropbox.com/s/5x8vhovlektl9qq/diamond.svg?dl=0'
+#     -
+#       name: 'thumb'
+#       url: 'https://www.dropbox.com/s/qx4mp08nu8j7q2k/thumb.svg?dl=0'
+
+#   rule_names:
+#     -
+#       name: 'Успешное прохождение всех тестов определенной категории'
+#       value: 'category'
+#     -
+#       name: 'Успешное прохождение всех тестов определенного уровня'
+#       value: 'level'
+#     -
+#       name: 'Успешное прохождение теста с первой попытки'
+#       value: 'attempt'

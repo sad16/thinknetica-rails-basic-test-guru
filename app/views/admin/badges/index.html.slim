@@ -1,0 +1,19 @@
+h1.mt-3.mb-3 = t('.header')
+
+p = link_to t('.new'), new_admin_badge_path, class: 'btn btn-primary'
+
+- if @badges.present?
+  table.table.table-striped
+    thead
+      tr
+        th.sort-by-title.pointer = Badge.human_attribute_name(:name)
+        th = Badge.human_attribute_name(:image_url)
+        th = Badge.human_attribute_name(:rule_name)
+        th = Badge.human_attribute_name(:rule_value)
+        th colspan='3' = t('.actions')
+
+    tbody
+      = render @badges
+
+- else
+  p = t('.no_badges')
