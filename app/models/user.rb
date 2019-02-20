@@ -18,15 +18,23 @@ class User < ApplicationRecord
             :first_name,
             presence: true
 
-  def tests_by_level(level)
-    tests.level(level)
+  def admin?
+    is_a?(Admin)
   end
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test: test)
   end
 
-  def admin?
-    is_a?(Admin)
+  def test_successful?(test)
+    test_passage(test)&.success_result?
+  end
+
+  def tests_by_category(category)
+    tests.category(category)
+  end
+
+  def tests_by_level(level)
+    tests.level(level)
   end
 end

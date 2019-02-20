@@ -17,7 +17,7 @@ class Test < ApplicationRecord
   scope :middle, -> { level(LEVELS[:middle]) }
   scope :hard, -> { level(LEVELS[:hard]) }
 
-  scope :by_category, -> (category) {
+  scope :category, -> (category) {
     joins(:category)
       .where(categories: { title: category })
       .order(title: :desc)
@@ -29,6 +29,6 @@ class Test < ApplicationRecord
                                     greater_than_or_equal_to: MIN_LEVEL }
 
   def self.titles_by_category(category)
-    by_category(category).pluck(:title)
+    category(category).pluck(:title)
   end
 end

@@ -5,6 +5,7 @@ en:
       user: "User"
       question: "Question"
       feedback: "Feedback"
+      badge: "Badge"
 
     attributes:
       test:
@@ -22,3 +23,9 @@ en:
         email: "Email"
         name: "Name"
         message: "Message"
+
+      badge:
+        name: "Name"
+        image_url: "Image"
+        rule_name: "Rule name"
+        rule_value: "Rule value"

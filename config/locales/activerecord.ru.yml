@@ -5,6 +5,7 @@ ru:
       user: "Пользователь"
       question: "Вопрос"
       feedback: "Обратная связь"
+      badge: "Награда"
 
     attributes:
       test:
@@ -22,3 +23,9 @@ ru:
         email: "Email"
         name: "Имя"
         message: "Сообщение"
+
+      badge:
+        name: "Название"
+        image_url: "Изображение"
+        rule_name: "Название правила"
+        rule_value: "Значение правила"

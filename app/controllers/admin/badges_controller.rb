@@ -20,7 +20,7 @@ class Admin::BadgesController < Admin::BaseController
     @badge = current_user.badges.new(badge_params)
 
     if @badge.save
-      redirect_to admin_badge_path(@badge)
+      redirect_to admin_badge_path(@badge), notice: t('.created')
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Admin::BadgesController < Admin::BaseController
 
   def update
     if @badge.update(badge_params)
-      redirect_to admin_badge_path(@badge)
+      redirect_to admin_badge_path(@badge), notice: t('.updated')
     else
       render :edit
     end

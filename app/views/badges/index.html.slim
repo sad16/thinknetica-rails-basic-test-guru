@@ -1,0 +1,6 @@
+h1 = t('.header')
+
+- if @badges.present?
+  = render @badges
+- else
+  p = t('.no_badges')

@@ -23,6 +23,7 @@ ru:
       hello: "Добро пожаловать,"
       tests: "Тесты"
       gists: "Gists"
+      badges: "Награды"
 
   tests:
     index:
@@ -46,6 +47,15 @@ ru:
 
     create:
       sended: "Сообщение отправлено успешно"
+
+  badges:
+    index:
+      header: "Список наград"
+      no_badges: "Наград нет"
+
+    all:
+      header: "Список всех наград"
+      no_badges: "Наград нет"
 
   admin:
     tests:
@@ -90,6 +100,38 @@ ru:
       index:
         header: "Gists"
         no_gists: "Gists нет"
+
+    badges:
+      index:
+        header: "Список наград"
+        new: "Новая награда"
+        actions: "Действия"
+        no_badges: "Наград нет"
+
+      new:
+        header: "Новая награда"
+        back: "Назад"
+
+      show:
+        header: "Награда %{name}"
+        edit: "Редактировать"
+        back: "Назад"
+
+      edit:
+        header: "Редактирование награды %{name}"
+        back: "Назад"
+
+      create:
+        created: "Награда успешно создана"
+
+      update:
+        updated: "Награда успешно обновлена"
+
+      badge:
+        show: "Посмотреть"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm: "Вы уверены?"
 
   services:
     gist_question_service:
