@@ -1,12 +1,13 @@
 module Badges
   class LevelRuleService < BaseRuleService
-    def call
-      all_test_ids = Test.level(value).pluck(:id)
-      user_test_ids = user.tests_by_level(value).select { |test|
-        user.test_successful?(test)
-      }.uniq.pluck(:id)
+    alias_method :level, :value
 
-      all_test_ids.sort == user_test_ids.sort
+    def call
+      Test.level(value).count == user.tests_by_level(level).count if check_rule?
+    end
+
+    def check_rule?
+      test.level == level
     end
   end
 end

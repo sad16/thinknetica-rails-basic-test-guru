@@ -9,12 +9,12 @@
   p
     = f.label :image_url
     br
-    = f.select(:image_url, @config.dig(:image_urls).collect { |url| [url.dig(:name), url.dig(:url)] }, prompt: true)
+    = f.select(:image_url, badge_image_url_options, prompt: true)
 
   p
     = f.label :rule_name
     br
-    = f.select(:rule_name, @config.dig(:rule_names).collect { |rule| [rule.dig(:name), rule.dig(:value)] }, prompt: true)
+    = f.select(:rule_name, badge_rule_name_options, prompt: true)
 
   p
     = f.label :rule_value

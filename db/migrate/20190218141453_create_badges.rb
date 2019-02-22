@@ -3,7 +3,7 @@ class CreateBadges < ActiveRecord::Migration[5.2]
     create_table :badges do |t|
       t.string :name, null: false
       t.string :image_url, null: false
-      t.string :rule_name, null: false
+      t.integer :rule_name, null: false
       t.string :rule_value, null: false
 
       t.timestamps

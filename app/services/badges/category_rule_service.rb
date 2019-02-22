@@ -1,12 +1,13 @@
 module Badges
   class CategoryRuleService < BaseRuleService
-    def call
-      all_test_ids = Test.category(value).pluck(:id)
-      user_test_ids = user.tests_by_category(value).select { |test|
-        user.test_successful?(test)
-      }.uniq.pluck(:id)
+    alias_method :category_title, :value
 
-      all_test_ids.sort == user_test_ids.sort
+    def call
+      Test.category(category_title).count == user.tests_by_category(category_title).count if check_rule?
+    end
+
+    def check_rule?
+      test.category.title == category_title
     end
   end
 end

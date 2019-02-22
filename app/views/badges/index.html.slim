@@ -1,5 +1,10 @@
 h1 = t('.header')
 
+- if @filter == 'all'
+  p = link_to t('.mine'), badges_path
+- else
+  p = link_to t('.all'), badges_path(filter: :all)
+
 - if @badges.present?
   = render @badges
 - else

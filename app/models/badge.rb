@@ -8,14 +8,16 @@ class Badge < ApplicationRecord
             :rule_value,
             presence: true
 
-  def self.assign(test_passage)
+  enum rule_name: {
+    category: 0,
+    level: 1,
+    attempt: 2
+  }
+
+  def self.assignable(test_passage)
     return unless test_passage.success_result?
 
-    user = test_passage.user
-
-    all.each do |badge|
-      user.badges << badge if badge.assign?(test_passage)
-    end
+    all.select { |badge| badge.assign?(test_passage) }
   end
 
   def assign?(test_passage)

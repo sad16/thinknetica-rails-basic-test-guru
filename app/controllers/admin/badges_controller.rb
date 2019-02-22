@@ -1,6 +1,5 @@
 class Admin::BadgesController < Admin::BaseController
   before_action :find_badge, only: [:show, :edit, :update, :destroy]
-  before_action :load_config, only: [:new, :edit]
 
   def index
     @badges = Badge.all
@@ -10,14 +9,14 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def new
-    @badge = current_user.badges.new
+    @badge = Badge.new
   end
 
   def edit
   end
 
   def create
-    @badge = current_user.badges.new(badge_params)
+    @badge = Badge.new(badge_params)
 
     if @badge.save
       redirect_to admin_badge_path(@badge), notice: t('.created')
@@ -47,9 +46,5 @@ class Admin::BadgesController < Admin::BaseController
 
   def find_badge
     @badge = Badge.find(params[:id])
-  end
-
-  def load_config
-    @config ||= Rails.application.config_for(:badges).deep_symbolize_keys
   end
 end

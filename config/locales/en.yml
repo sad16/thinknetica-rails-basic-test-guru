@@ -50,10 +50,19 @@ en:
     index:
       header: "Badges list"
       no_badges: "No badges"
+      all: "All badges"
+      mine: "My badges"
 
-    all:
-      header: "All badges list"
-      no_badges: "No badges"
+    helpers:
+      images:
+        cat: 'Cat'
+        diamond: 'Diamond'
+        thumb: 'Thumb'
+
+      rules:
+        category: 'Successful passing of all tests of a certain category'
+        level: 'Successful passing of all tests of a certain level'
+        attempt: 'Successful passing the test with a certain attempt'
 
   admin:
     tests:

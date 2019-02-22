@@ -18,9 +18,7 @@ Rails.application.routes.draw do
 
   resource :feedback, only: [:new, :create], path_names: { new: '' }
 
-  resources :badges, only: :index do
-    get :all, on: :collection
-  end
+  resources :badges, only: :index
 
   namespace :admin do
     resources :tests do

@@ -1,14 +1,13 @@
 module Badges
   class AttemptRuleService < BaseRuleService
-    attr_reader :test
-
-    def initialize(value, test_passage)
-      super
-      @test = test_passage.test
-    end
+    alias_method :attempts_count, :value
 
     def call
-      test.test_passages.where(user: user).count == value.to_i
+      test.test_passages.where(user: user).count == attempts_count.to_i if check_rule?
+    end
+
+    def check_rule?
+      true
     end
   end
 end

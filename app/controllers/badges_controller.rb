@@ -1,9 +1,11 @@
 class BadgesController < ApplicationController
   def index
-    @badges = current_user.badges
+    @badges = (filter == 'all') ? Badge.all : current_user.badges
   end
 
-  def all
-    @badges = Badge.all
+  private
+
+  def filter
+    @filter = params[:filter]
   end
 end
