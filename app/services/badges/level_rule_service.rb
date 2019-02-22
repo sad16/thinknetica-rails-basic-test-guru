@@ -3,11 +3,11 @@ module Badges
     alias_method :level, :value
 
     def call
-      Test.level(value).count == user.tests_by_level(level).count if check_rule?
+      Test.level(level).count == user.tests_by_level(level).count if check_rule?
     end
 
     def check_rule?
-      test.level == level
+      test.level == level.to_i
     end
   end
 end
