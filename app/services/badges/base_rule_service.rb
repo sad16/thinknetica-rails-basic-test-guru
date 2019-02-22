@@ -12,7 +12,7 @@ module Badges
       raise NotImplementedError
     end
 
-    def check_rule
+    def check_rule?
       raise NotImplementedError
     end
   end
