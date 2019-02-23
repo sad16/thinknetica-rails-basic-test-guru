@@ -9,10 +9,16 @@ module Badges
     end
 
     def call
+      perform_check if guard_check_passed?
+    end
+
+    private
+
+    def perform_check
       raise NotImplementedError
     end
 
-    def check_rule?
+    def guard_check_passed?
       raise NotImplementedError
     end
   end

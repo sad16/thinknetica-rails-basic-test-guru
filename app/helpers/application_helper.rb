@@ -16,4 +16,9 @@ module ApplicationHelper
   def alert_class(type)
     ALERT_TYPES[type.to_sym] || ALERT_TYPES[:default]
   end
+
+  def active_link_to(text, path, classes)
+    classes += 'active' if current_page?(path)
+    link_to text, path, class: classes
+  end
 end

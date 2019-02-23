@@ -2,11 +2,13 @@ module Badges
   class LevelRuleService < BaseRuleService
     alias_method :level, :value
 
-    def call
-      Test.level(level).count == user.tests_by_level(level).count if check_rule?
+    private
+
+    def perform_check
+      Test.level(level).count == user.successful_tests.level(level).distinct.count
     end
 
-    def check_rule?
+    def guard_check_passed?
       test.level == level.to_i
     end
   end
