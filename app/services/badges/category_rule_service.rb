@@ -5,7 +5,8 @@ module Badges
     private
 
     def perform_check
-      Test.category(category_title).count == user.successful_tests.category(category_title).distinct.count
+      Test.category_title(category_title).count ==
+        user.successful_tests.category_title(category_title).distinct.count
     end
 
     def guard_check_passed?

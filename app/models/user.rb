@@ -27,11 +27,11 @@ class User < ApplicationRecord
   end
 
   def successful_tests
-    tests.where(test_passages: { percent: TestPassage::SUCCESS_PERCENT..100 })
+    tests.merge(TestPassage.successful)
   end
 
-  def tests_by_category(category)
-    tests.category(category)
+  def tests_by_category_title(category_title)
+    tests.category_title(category_title)
   end
 
   def tests_by_level(level)
