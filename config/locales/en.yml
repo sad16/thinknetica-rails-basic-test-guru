@@ -55,14 +55,14 @@ en:
 
     helpers:
       images:
-        cat: 'Cat'
-        diamond: 'Diamond'
-        thumb: 'Thumb'
+        cat: "Cat"
+        diamond: "Diamond"
+        thumb: "Thumb"
 
       rules:
-        category: 'Successful passing of all tests of a certain category'
-        level: 'Successful passing of all tests of a certain level'
-        attempt: 'Successful passing the test with a certain attempt'
+        category: "Successful passing of all tests of a certain category"
+        level: "Successful passing of all tests of a certain level"
+        attempt: "Successful passing the test with a certain attempt"
 
   test_passages:
     helpers:
