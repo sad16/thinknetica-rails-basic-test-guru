@@ -64,6 +64,12 @@ en:
         level: 'Successful passing of all tests of a certain level'
         attempt: 'Successful passing the test with a certain attempt'
 
+  test_passages:
+    helpers:
+      timer:
+        one: "Left %{count} minute"
+        other: "Left %{count} minutes"
+
   admin:
     tests:
       index:

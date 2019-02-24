@@ -9,8 +9,8 @@ module TestPassagesHelper
   end
 
   def timer(test_passage)
-    return nil if test_passage.second_to_end == Float::INFINITY
+    return if test_passage.second_to_end == Float::INFINITY
 
-    "Time to end #{pluralize((test_passage.second_to_end / 60), 'minute')}"
+    I18n.t('test_passages.helpers.timer', count: test_passage.second_to_end / 60)
   end
 end

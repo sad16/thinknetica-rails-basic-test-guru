@@ -39,7 +39,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success_result?
-    percent >= SUCCESS_PERCENT
+    persent && percent >= SUCCESS_PERCENT
   end
 
   def next_question
