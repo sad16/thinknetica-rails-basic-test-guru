@@ -10,7 +10,14 @@ nav.navbar.navbar-light.bg-light
       - if current_user.admin?
         => link_to t('.tests'), admin_tests_path
         '|
+        => link_to t('.badges'), admin_badges_path
+        '|
         => link_to t('.gists'), admin_gists_path
+        '|
+      - else
+        => link_to t('.tests'), tests_path
+        '|
+        => link_to t('.badges'), badges_path
         '|
 
       = link_to t('.logout'), destroy_user_session_path, method: :delete

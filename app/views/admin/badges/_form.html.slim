@@ -1,0 +1,25 @@
+= form_with model: [:admin, @badge], local: true do |f|
+  = render 'shared/errors', resource: @badge
+
+  p
+    = f.label :name
+    br
+    = f.text_field :name
+
+  p
+    = f.label :image_url
+    br
+    = f.select(:image_url, badge_image_url_options, prompt: true)
+
+  p
+    = f.label :rule_name
+    br
+    = f.select(:rule_name, badge_rule_name_options, prompt: true)
+
+  p
+    = f.label :rule_value
+    br
+    = f.text_field :rule_value
+
+  p
+    = f.submit

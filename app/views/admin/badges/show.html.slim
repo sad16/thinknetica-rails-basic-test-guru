@@ -1,0 +1,10 @@
+h1 = t('.header', name: @badge.name)
+
+.card.border-primary.mt-3
+  img src=@badge.image_url width="100" height="100" class="card-img-top" alt=@badge.name
+  .card-body
+    .card-title = @badge.name
+
+= link_to t('.edit'), edit_admin_badge_path(@badge)
+br
+= link_to t('.back'), admin_badges_path

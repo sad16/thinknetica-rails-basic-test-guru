@@ -7,7 +7,7 @@ class Test < ApplicationRecord
   }.freeze
 
   belongs_to :category
-  belongs_to :author, class_name: "User"
+  belongs_to :author, class_name: 'User'
   has_many :questions, dependent: :destroy
   has_many :test_passages, dependent: :destroy
   has_many :users, through: :test_passages
@@ -17,9 +17,9 @@ class Test < ApplicationRecord
   scope :middle, -> { level(LEVELS[:middle]) }
   scope :hard, -> { level(LEVELS[:hard]) }
 
-  scope :by_category, -> (category) {
+  scope :category_title, -> (category_title) {
     joins(:category)
-      .where(categories: { title: category })
+      .where(categories: { title: category_title })
       .order(title: :desc)
   }
 
@@ -28,7 +28,7 @@ class Test < ApplicationRecord
   validates :level, numericality: { only_integer: true,
                                     greater_than_or_equal_to: MIN_LEVEL }
 
-  def self.titles_by_category(category)
-    by_category(category).pluck(:title)
+  def self.titles_by_category_title(category_title)
+    category_title(category_title).pluck(:title)
   end
 end

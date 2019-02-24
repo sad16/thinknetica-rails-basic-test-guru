@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   resource :feedback, only: [:new, :create], path_names: { new: '' }
 
+  get '/badges/(:filter)' => 'badges#index', as: :badges
+
   namespace :admin do
     resources :tests do
       patch :update_inline, on: :member
@@ -28,5 +30,7 @@ Rails.application.routes.draw do
     end
 
     resources :gists, only: :index
+
+    resources :badges
   end
 end
