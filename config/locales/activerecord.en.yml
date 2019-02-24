@@ -13,6 +13,7 @@ en:
         level: "Level"
         category_id: "Category"
         author_id: "Author"
+        timer: "Timer"
         created_at: "Created"
         updated_at: "Updated"
 

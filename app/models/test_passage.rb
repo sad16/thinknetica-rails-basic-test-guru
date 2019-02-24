@@ -3,9 +3,11 @@ class TestPassage < ApplicationRecord
 
   belongs_to :user
   belongs_to :test
-  belongs_to :current_question, class_name: "Question", optional: true
+  belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_next_question
+
+  before_create :before_create_set_finished_at
 
   def completed?
     current_question.nil?
@@ -36,10 +38,23 @@ class TestPassage < ApplicationRecord
     end
   end
 
+  def timer_valid?
+    second_to_end.positive?
+  end
+
+  def second_to_end
+    self.finished_at ? self.finished_at.to_i - Time.current.to_i : Float::INFINITY
+  end
+
   private
 
   def before_validation_set_next_question
     self.current_question = next_question
+  end
+
+  def before_create_set_finished_at
+    timer = test.timer
+    self.finished_at = self.created_at + timer.minutes if timer
   end
 
   def correct_answer?(answer_ids)
