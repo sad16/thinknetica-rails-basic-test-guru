@@ -2,11 +2,14 @@ module Badges
   class CategoryRuleService < BaseRuleService
     alias_method :category_title, :value
 
-    def call
-      Test.category(category_title).count == user.tests_by_category(category_title).count if check_rule?
+    private
+
+    def perform_check
+      Test.category_title(category_title).count ==
+        user.successful_tests.category_title(category_title).distinct.count
     end
 
-    def check_rule?
+    def guard_check_passed?
       test.category.title == category_title
     end
   end

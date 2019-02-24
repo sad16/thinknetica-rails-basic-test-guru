@@ -20,9 +20,9 @@ class Test < ApplicationRecord
   scope :middle, -> { level(LEVELS[:middle]) }
   scope :hard, -> { level(LEVELS[:hard]) }
 
-  scope :category, -> (category) {
+  scope :category_title, -> (category_title) {
     joins(:category)
-      .where(categories: { title: category })
+      .where(categories: { title: category_title })
       .order(title: :desc)
   }
 
@@ -37,7 +37,7 @@ class Test < ApplicationRecord
                                    greater_than_or_equal_to: TIMER[:min],
                                    less_than_or_equal_to: TIMER[:max] }
 
-  def self.titles_by_category(category)
-    category(category).pluck(:title)
+  def self.titles_by_category_title(category_title)
+    category_title(category_title).pluck(:title)
   end
 end

@@ -1,9 +1,8 @@
 h1 = t('.header')
 
-- if @filter == 'all'
-  p = link_to t('.mine'), badges_path
-- else
-  p = link_to t('.all'), badges_path(filter: :all)
+p
+  = active_link_to(t('.mine'), badges_path, 'btn btn-link')
+  = active_link_to(t('.all'), badges_path(filter: :all), 'btn btn-link')
 
 - if @badges.present?
   = render @badges

@@ -1,13 +1,20 @@
 class TestPassage < ApplicationRecord
-  SUCCESS_PERSENT = 85
+  SUCCESS_PERCENT = 85
 
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
+  scope :successful, -> { where(percent: SUCCESS_PERCENT..100) }
+
   before_validation :before_validation_set_next_question
 
   before_create :before_create_set_finished_at
+
+  validates :percent, numericality: { allow_nil: true,
+                                      only_integer: true,
+                                      greater_than_or_equal_to: 0,
+                                      less_than_or_equal_to: 100 }
 
   def completed?
     current_question.nil?
@@ -15,6 +22,11 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    save!
+  end
+
+  def complete!
+    self.percent = result
     save!
   end
 
@@ -27,7 +39,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success_result?
-    result >= SUCCESS_PERSENT
+    percent >= SUCCESS_PERCENT
   end
 
   def next_question
@@ -49,7 +61,7 @@ class TestPassage < ApplicationRecord
   private
 
   def before_validation_set_next_question
-    self.current_question = next_question
+    self.current_question = next_question unless percent
   end
 
   def before_create_set_finished_at

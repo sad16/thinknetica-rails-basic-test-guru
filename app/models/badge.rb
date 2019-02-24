@@ -1,5 +1,5 @@
 class Badge < ApplicationRecord
-  has_many :user_badges
+  has_many :user_badges, dependent: :destroy
   has_many :users, through: :user_badges
 
   validates :name,
@@ -15,7 +15,7 @@ class Badge < ApplicationRecord
   }
 
   def self.assignable(test_passage)
-    return unless test_passage.success_result?
+    return [] unless test_passage.success_result?
 
     all.select { |badge| badge.assign?(test_passage) }
   end
