@@ -9,7 +9,7 @@ h1 Passing the #{@test_passage.test.title} Test
 
 p
   => t('.timer')
-  = content_tag :span, '10:00', class: 'timer', data: { second: @test_passage.second_to_end }
+  = content_tag :span, nil, class: 'timer', data: { second: @test_passage.second_to_end }
 
 b = pluralize(questions_count, 'question')
 br
