@@ -65,10 +65,10 @@ en:
         attempt: "Successful passing the test with a certain attempt"
 
   test_passages:
-    helpers:
-      timer:
-        one: "Left %{count} minute"
-        other: "Left %{count} minutes"
+    show:
+      timer: "Time to end"
+    result:
+      timer_invalid: "Time is over"
 
   admin:
     tests:

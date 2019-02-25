@@ -67,15 +67,10 @@ ru:
         attempt: "Успешное прохождение теста с определенной попытки"
 
   test_passages:
+    show:
+      timer: "До конца теста"
     result:
       timer_invalid: "Время истекло"
-
-    helpers:
-      timer:
-        few: "Осталось %{count} минуты"
-        many: "Осталось %{count} минут"
-        one: "Отсалась %{count} минута"
-        other: "Осталось %{count} минут"
 
   admin:
     tests:

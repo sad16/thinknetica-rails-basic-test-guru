@@ -32,10 +32,7 @@ class Test < ApplicationRecord
   validates :level, numericality: { only_integer: true,
                                     greater_than_or_equal_to: MIN_LEVEL }
 
-  validates :timer, numericality: { allow_nil: true,
-                                   only_integer: true,
-                                   greater_than_or_equal_to: TIMER[:min],
-                                   less_than_or_equal_to: TIMER[:max] }
+  validates :timer, inclusion: TIMER[:min]..TIMER[:max], allow_nil: true
 
   def self.titles_by_category_title(category_title)
     category_title(category_title).pluck(:title)

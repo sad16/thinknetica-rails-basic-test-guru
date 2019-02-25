@@ -9,12 +9,7 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_next_question
 
-  before_create :before_create_set_finished_at
-
-  validates :percent, numericality: { allow_nil: true,
-                                      only_integer: true,
-                                      greater_than_or_equal_to: 0,
-                                      less_than_or_equal_to: 100 }
+  validates :percent, inclusion: 0..100, allow_nil: true
 
   def completed?
     current_question.nil?
@@ -25,9 +20,13 @@ class TestPassage < ApplicationRecord
     save!
   end
 
-  def complete!
-    self.percent = result
-    save!
+  def complete!(timer_valid: true)
+    if timer_valid
+      self.percent = result
+      save!
+    end
+
+    TestPassageMailer.result_email(self).deliver_now
   end
 
   def current_question_number
@@ -55,18 +54,14 @@ class TestPassage < ApplicationRecord
   end
 
   def second_to_end
-    self.finished_at ? self.finished_at.to_i - Time.current.to_i : Float::INFINITY
+    timer = test.timer
+    timer ? (self.created_at + timer.minutes - Time.current).ceil : Float::INFINITY
   end
 
   private
 
   def before_validation_set_next_question
     self.current_question = next_question unless percent
-  end
-
-  def before_create_set_finished_at
-    timer = test.timer
-    self.finished_at = self.created_at + timer.minutes if timer
   end
 
   def correct_answer?(answer_ids)

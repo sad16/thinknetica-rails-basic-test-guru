@@ -7,7 +7,9 @@ p
 
 h1 Passing the #{@test_passage.test.title} Test
 
-h3 = timer(@test_passage)
+p
+  => t('.timer')
+  = content_tag :span, '10:00', class: 'timer', data: { second: @test_passage.second_to_end }
 
 b = pluralize(questions_count, 'question')
 br

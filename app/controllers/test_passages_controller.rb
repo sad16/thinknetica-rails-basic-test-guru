@@ -11,7 +11,6 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       @test_passage.complete!
       current_user.badges << Badge.assignable(@test_passage)
-      TestPassageMailer.result_email(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
@@ -28,6 +27,9 @@ class TestPassagesController < ApplicationController
   end
 
   def check_timer
-    redirect_to result_test_passage_path(@test_passage) unless @test_passage.timer_valid?
+    return if @test_passage.timer_valid?
+
+    @test_passage.complete!(timer_valid: false)
+    redirect_to result_test_passage_path(@test_passage)
   end
 end

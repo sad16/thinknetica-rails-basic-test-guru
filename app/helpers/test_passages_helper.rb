@@ -8,9 +8,9 @@ module TestPassagesHelper
     test_passage.success_result? ? 'green' : 'red'
   end
 
-  def timer(test_passage)
-    return if test_passage.second_to_end == Float::INFINITY
+  # def timer(test_passage)
+  #   return if test_passage.second_to_end == Float::INFINITY
 
-    I18n.t('test_passages.helpers.timer', count: (test_passage.second_to_end.to_f / 60).ceil)
-  end
+  #   I18n.t('test_passages.helpers.timer', count: (test_passage.second_to_end.to_f / 60).ceil)
+  # end
 end
