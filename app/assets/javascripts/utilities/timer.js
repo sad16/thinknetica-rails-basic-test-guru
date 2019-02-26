@@ -2,27 +2,23 @@ document.addEventListener('turbolinks:load', function() {
   var timer = document.querySelector('.timer');
 
   if (timer) {
-    showTimer();
-    setInterval(showTimer, 1000);
+    setInterval(function() {
+      var timerSeconds = parseInt(timer.dataset.seconds);
+
+      if (timerSeconds == 0) { submitAnswerForm() }
+
+      var seconds = timerSeconds % 60;
+      var minutes = (timerSeconds - seconds) / 60;
+
+      timer.textContent = minutes + ':' + (seconds < 10 ? '0' + seconds : seconds);
+
+      timer.dataset.seconds = timerSeconds - 1;
+    }, 1000);
   }
 })
 
-function showTimer() {
-  var timer = document.querySelector('.timer');
-  var timer_seconds = parseInt(timer.dataset.second);
-
-  if (timer_seconds == 0) { submitForm() }
-
-  var seconds = timer_seconds % 60;
-  var minutes = (timer_seconds - seconds) / 60;
-
-  timer.textContent = `${minutes}:${seconds > 9 ? seconds : `0${seconds}`}`;
-
-  timer.dataset.second = timer_seconds - 1;
-}
-
-function submitForm() {
-  var form = document.querySelector('form');
+function submitAnswerForm() {
+  var form = document.querySelector('#answer-form');
 
   if (form) { form.submit() }
 }

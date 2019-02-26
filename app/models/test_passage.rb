@@ -17,16 +17,8 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.percent = result if timer_valid?
     save!
-  end
-
-  def complete!(timer_valid: true)
-    if timer_valid
-      self.percent = result
-      save!
-    end
-
-    TestPassageMailer.result_email(self).deliver_now
   end
 
   def current_question_number
@@ -50,10 +42,10 @@ class TestPassage < ApplicationRecord
   end
 
   def timer_valid?
-    second_to_end.positive?
+    time_left.positive?
   end
 
-  def second_to_end
+  def time_left
     timer = test.timer
     timer ? (self.created_at + timer.minutes - Time.current).ceil : Float::INFINITY
   end
@@ -61,7 +53,7 @@ class TestPassage < ApplicationRecord
   private
 
   def before_validation_set_next_question
-    self.current_question = next_question unless percent
+    self.current_question = next_question
   end
 
   def correct_answer?(answer_ids)

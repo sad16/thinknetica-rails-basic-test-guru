@@ -7,8 +7,6 @@ class Test < ApplicationRecord
     hard: 5..Float::INFINITY
   }.freeze
 
-  TIMER = { min: 10, max: 360 }.freeze
-
   belongs_to :category
   belongs_to :author, class_name: 'User'
   has_many :questions, dependent: :destroy
@@ -32,7 +30,7 @@ class Test < ApplicationRecord
   validates :level, numericality: { only_integer: true,
                                     greater_than_or_equal_to: MIN_LEVEL }
 
-  validates :timer, inclusion: TIMER[:min]..TIMER[:max], allow_nil: true
+  validates :timer, inclusion: 10..360, allow_nil: true
 
   def self.titles_by_category_title(category_title)
     category_title(category_title).pluck(:title)
