@@ -1,6 +1,6 @@
 class TestPassagesController < ApplicationController
   before_action :find_test_passage, only: [:show, :update, :result]
-  before_action :check_timer, only: [:show, :update]
+  before_action :check_timer, only: [:show]
 
   def show
   end
