@@ -2,9 +2,9 @@ document.addEventListener('turbolinks:load', function() {
   var timer = document.querySelector('.timer');
 
   if (timer) {
-    setInterval(function() {
-      var timerSeconds = parseInt(timer.dataset.seconds);
+    var timerSeconds = parseInt(timer.dataset.seconds);
 
+    setInterval(function() {
       if (timerSeconds == 0) { submitAnswerForm() }
 
       var seconds = timerSeconds % 60;
@@ -12,7 +12,7 @@ document.addEventListener('turbolinks:load', function() {
 
       timer.textContent = minutes + ':' + (seconds < 10 ? '0' + seconds : seconds);
 
-      timer.dataset.seconds = timerSeconds - 1;
+      timerSeconds--;
     }, 1000);
   }
 })
