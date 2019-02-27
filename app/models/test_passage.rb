@@ -11,14 +11,19 @@ class TestPassage < ApplicationRecord
 
   validates :percent, inclusion: 0..100, allow_nil: true
 
-  def completed?
-    current_question.nil?
-  end
-
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    save!
+  end
+
+  def completed!
+    self.completed = true
     self.percent = result
     save!
+  end
+
+  def current_question?
+    current_question.present?
   end
 
   def current_question_number
@@ -53,7 +58,7 @@ class TestPassage < ApplicationRecord
   private
 
   def before_validation_set_next_question
-    self.current_question = next_question
+    self.current_question = next_question unless completed?
   end
 
   def correct_answer?(answer_ids)
