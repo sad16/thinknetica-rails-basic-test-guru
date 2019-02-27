@@ -67,8 +67,6 @@ en:
   test_passages:
     show:
       timer: "Time to end"
-    result:
-      timer_invalid: "Time is over"
 
   admin:
     tests:

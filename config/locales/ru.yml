@@ -69,8 +69,6 @@ ru:
   test_passages:
     show:
       timer: "До конца теста"
-    result:
-      timer_invalid: "Время истекло"
 
   admin:
     tests:
