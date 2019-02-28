@@ -5,6 +5,7 @@ tr
   td.align-middle = test.category.title
   td.align-middle = test.level
   td.align-middle = test.questions.count
+  th.align-middle = test.timer
   td.align-middle = link_to t('.show'), admin_test_path(test), class: 'btn btn-primary'
   td.align-middle = link_to t('.edit'), edit_admin_test_path(test), data: { test_id: test.id }, class: 'btn btn-warning form-inline-link'
   td.align-middle = link_to t('.delete'), admin_test_path(test), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger'

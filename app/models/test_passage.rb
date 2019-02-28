@@ -9,21 +9,19 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_next_question
 
-  validates :percent, numericality: { allow_nil: true,
-                                      only_integer: true,
-                                      greater_than_or_equal_to: 0,
-                                      less_than_or_equal_to: 100 }
+  validates :percent, inclusion: 0..100, allow_nil: true
 
   def completed?
-    current_question.nil?
+    current_question.nil? && percent
   end
 
   def accept!(answer_ids)
-    self.correct_questions += 1 if correct_answer?(answer_ids)
-    save!
-  end
+    if timer_valid?
+      self.correct_questions += 1 if correct_answer?(answer_ids)
+    else
+      self.current_question = nil
+    end
 
-  def complete!
     self.percent = result
     save!
   end
@@ -37,7 +35,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success_result?
-    percent >= SUCCESS_PERCENT
+    percent && percent >= SUCCESS_PERCENT
   end
 
   def next_question
@@ -48,10 +46,19 @@ class TestPassage < ApplicationRecord
     end
   end
 
+  def timer_valid?
+    time_left.positive?
+  end
+
+  def time_left
+    timer = test.timer
+    timer ? (self.created_at + timer.minutes - Time.current).ceil : Float::INFINITY
+  end
+
   private
 
   def before_validation_set_next_question
-    self.current_question = next_question unless percent
+    self.current_question = next_question unless completed?
   end
 
   def correct_answer?(answer_ids)

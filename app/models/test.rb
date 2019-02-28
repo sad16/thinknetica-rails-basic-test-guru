@@ -1,5 +1,6 @@
 class Test < ApplicationRecord
   MIN_LEVEL = 0
+
   LEVELS = {
     light: MIN_LEVEL..1,
     middle: 2..4,
@@ -25,8 +26,11 @@ class Test < ApplicationRecord
 
   validates :title, presence: true,
                     uniqueness: { scope: :level }
+
   validates :level, numericality: { only_integer: true,
                                     greater_than_or_equal_to: MIN_LEVEL }
+
+  validates :timer, inclusion: 10..360, allow_nil: true
 
   def self.titles_by_category_title(category_title)
     category_title(category_title).pluck(:title)

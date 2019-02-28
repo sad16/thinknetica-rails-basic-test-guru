@@ -13,6 +13,7 @@ ru:
         level: "Уровень"
         category_id: "Категория"
         author_id: "Автор"
+        timer: "Таймер"
         created_at: "Создан"
         updated_at: "Обновлен"
 

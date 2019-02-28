@@ -15,6 +15,7 @@ p = link_to t('.new'), new_admin_test_path, class: 'btn btn-primary'
         th = Test.human_attribute_name(:category_id)
         th = Test.human_attribute_name(:level)
         th = t('.question')
+        th = Test.human_attribute_name(:timer)
         th colspan='3' = t('.actions')
 
     tbody
