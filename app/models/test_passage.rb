@@ -11,19 +11,19 @@ class TestPassage < ApplicationRecord
 
   validates :percent, inclusion: 0..100, allow_nil: true
 
-  def accept!(answer_ids)
-    self.correct_questions += 1 if correct_answer?(answer_ids)
-    save!
+  def completed?
+    current_question.nil? && percent
   end
 
-  def completed!
-    self.completed = true
+  def accept!(answer_ids)
+    if timer_valid?
+      self.correct_questions += 1 if correct_answer?(answer_ids)
+    else
+      self.current_question = nil
+    end
+
     self.percent = result
     save!
-  end
-
-  def current_question?
-    current_question.present?
   end
 
   def current_question_number
